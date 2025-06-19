@@ -89,7 +89,10 @@ class Api:
                 swap_exec = getattr(Class, f1, None)
                 try:
                     if (callable(swap_exec) and "params" in Dict[f1]):
-                        swap_call = swap_exec(**Dict[f1]["params"].copy())
+                        if (Dict[f1]["params"]):
+                            swap_call = swap_exec(**Dict[f1]["params"].copy())
+                        else:
+                            swap_call = swap_exec()
                         swap_exec = callable(swap_exec)
                 except BaseException as e:
                     swap_exec = False

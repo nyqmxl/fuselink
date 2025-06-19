@@ -130,8 +130,8 @@ class browser:
         swap_call = None
         for Dict in List:
             for f1 in Dict:
-                swap_exec = getattr(Class, f1, None)
                 try:
+                    swap_exec = getattr(Class, f1, None)
                     if (callable(swap_exec) and "params" in Dict[f1]):
                         if (Dict[f1]["params"]):
                             swap_call = swap_exec(**Dict[f1]["params"].copy())
